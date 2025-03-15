@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="index.html" class="back-button">← Back to Character Selection</a>
     <h1>D&D Damage Calculator</h1>
-
+    
     <!-- Weapon Containers -->
     <div class="weapon-container">
         <div class="weapon-box">
@@ -44,6 +45,8 @@
     </div>
 
     <button id="rollBtn">Roll Damage</button>
+    
+    <h2>Total Damage: <span id="totalDamage">0</span></h2>
 
     <!-- Calculation Breakdown -->
     <div id="rollResults">
@@ -51,7 +54,6 @@
         <p id="calculationBreakdown"></p>
     </div>
 
-    <h2>Total Damage: <span id="totalDamage">0</span></h2>
 
     <script src="script.js"></script>
 </body>
