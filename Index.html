@@ -3,46 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Damage Calculator</title>
+    <title>Character Selection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>D&D Damage Calculator</h1>
+    <h1>Select Your Character</h1>
 
-    <!-- Weapon Containers -->
-    <div class="weapon-container">
-        <div class="weapon-box">
-            <img src="weapon1.jpg" alt="Weapon 1" class="weapon-img">
-            <label><input type="checkbox" id="weapon1"> First Weapon Hits</label>
-            <label><input type="checkbox" id="crit1"> First Weapon Crits</label>
-            <p id="weapon1Result">Damage: 0</p>
-        </div>
-
-        <div class="weapon-box">
-            <img src="weapon2.jpg" alt="Weapon 2" class="weapon-img">
-            <label><input type="checkbox" id="weapon2"> Second Weapon Hits</label>
-            <label><input type="checkbox" id="crit2"> Second Weapon Crits</label>
-            <p id="weapon2Result">Damage: 0</p>
+    <div class="character-selection">
+        <div class="character-card">
+            <img src="character-background.jpg" alt="Character 1" class="character-avatar">
+            <h3>Rogue Warlock</h3>
+            <a href="calculator.html" class="select-button">Select</a>
         </div>
     </div>
 
-    <!-- Buffs Section -->
-    <div class="buffs-container">
-        <label><input type="checkbox" id="hex"> Hex Applied</label>
-        <label><input type="checkbox" id="hexWarrior"> Hex Warrior’s Curse</label>
-        <label><input type="checkbox" id="sneakAttack"> Sneak Attack</label>
-    </div>
-
-    <button id="rollBtn">Roll Damage</button>
-
-    <!-- Calculation Breakdown -->
-    <div id="rollResults">
-        <h2>Calculation Breakdown</h2>
-        <p id="calculationBreakdown"></p>
-    </div>
-
-    <h2>Total Damage: <span id="totalDamage">0</span></h2>
-
-    <script src="script.js"></script>
 </body>
 </html>
