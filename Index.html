@@ -8,21 +8,44 @@
 </head>
 <body>
     <h1>D&D Damage Calculator</h1>
-    
-    <div class="checkbox-container">
-        <label><input type="checkbox" id="weapon1"> First Weapon Hits</label>
-        <label><input type="checkbox" id="crit1"> First Weapon Crits</label>
 
-        <label><input type="checkbox" id="weapon2"> Second Weapon Hits</label>
-        <label><input type="checkbox" id="crit2"> Second Weapon Crits</label>
+    <div class="container">
+        <!-- Left Weapon (Main Hand) -->
+        <div class="weapon-container">
+            <img src="weapon1.png" alt="Weapon 1" class="weapon-img">
+            <div>
+                <label><input type="checkbox" id="weapon1"> First Weapon Hits</label>
+                <label><input type="checkbox" id="crit1"> First Weapon Crits</label>
+                <p id="weapon1Result">Damage: 0</p>
+            </div>
+        </div>
 
+        <!-- Right Weapon (Offhand) -->
+        <div class="weapon-container">
+            <img src="weapon2.png" alt="Weapon 2" class="weapon-img">
+            <div>
+                <label><input type="checkbox" id="weapon2"> Second Weapon Hits</label>
+                <label><input type="checkbox" id="crit2"> Second Weapon Crits</label>
+                <p id="weapon2Result">Damage: 0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buffs -->
+    <div class="buffs-container">
         <label><input type="checkbox" id="hex"> Hex Applied</label>
         <label><input type="checkbox" id="hexWarrior"> Hex Warrior’s Curse</label>
         <label><input type="checkbox" id="sneakAttack"> Sneak Attack</label>
     </div>
 
     <button id="rollBtn">Roll Damage</button>
-    
+
+    <!-- Display Calculations -->
+    <div id="rollResults">
+        <h2>Calculation Breakdown</h2>
+        <p id="calculationBreakdown"></p>
+    </div>
+
     <h2>Total Damage: <span id="totalDamage">0</span></h2>
 
     <script src="script.js"></script>

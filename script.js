@@ -8,20 +8,25 @@ document.getElementById("rollBtn").addEventListener("click", function() {
     let sneakAttack = document.getElementById("sneakAttack").checked;
 
     function rollDice(sides, count = 1) {
+        let rolls = [];
         let total = 0;
         for (let i = 0; i < count; i++) {
-            total += Math.floor(Math.random() * sides) + 1;
+            let roll = Math.floor(Math.random() * sides) + 1;
+            rolls.push(roll);
+            total += roll;
         }
-        return total;
+        return { total, rolls };
     }
 
     let totalDamage = 0;
+    let breakdown = "";
 
     // First Weapon Damage Calculation
     if (weapon1) {
-        let baseDamage = rollDice(6) + 3;  // 1d6 + 3
+        let baseRoll = rollDice(6);
+        let baseDamage = baseRoll.total + 3;
         let extraHex = hex ? 3 : 0;
-        let extraHexWarrior = hexWarrior ? rollDice(6) : 0;
+        let extraHexWarrior = hexWarrior ? rollDice(6).total : 0;
 
         if (crit1) {
             baseDamage *= 2;
@@ -30,13 +35,16 @@ document.getElementById("rollBtn").addEventListener("click", function() {
         }
 
         totalDamage += baseDamage + extraHex + extraHexWarrior;
+        breakdown += `First Weapon: ${baseRoll.rolls} + 3 ${crit1 ? "(Doubled) " : ""}+ ${extraHex} (Hex) + ${extraHexWarrior} (Hex Warrior) = ${baseDamage + extraHex + extraHexWarrior} <br>`;
+        document.getElementById("weapon1Result").innerText = `Damage: ${baseDamage + extraHex + extraHexWarrior}`;
     }
 
     // Second Weapon Damage Calculation
     if (weapon2) {
-        let baseDamage = rollDice(6) + 3;
+        let baseRoll = rollDice(6);
+        let baseDamage = baseRoll.total + 3;
         let extraHex = hex ? 3 : 0;
-        let extraHexWarrior = hexWarrior ? rollDice(6) : 0;
+        let extraHexWarrior = hexWarrior ? rollDice(6).total : 0;
 
         if (crit2) {
             baseDamage *= 2;
@@ -45,16 +53,21 @@ document.getElementById("rollBtn").addEventListener("click", function() {
         }
 
         totalDamage += baseDamage + extraHex + extraHexWarrior;
+        breakdown += `Second Weapon: ${baseRoll.rolls} + 3 ${crit2 ? "(Doubled) " : ""}+ ${extraHex} (Hex) + ${extraHexWarrior} (Hex Warrior) = ${baseDamage + extraHex + extraHexWarrior} <br>`;
+        document.getElementById("weapon2Result").innerText = `Damage: ${baseDamage + extraHex + extraHexWarrior}`;
     }
 
     // Sneak Attack Damage Calculation
     if (sneakAttack) {
-        let sneakDamage = rollDice(6, 3);  // 3d6
-        if (crit1 || crit2) { // Sneak Attack is also doubled on a crit
+        let sneakRoll = rollDice(6, 3);
+        let sneakDamage = sneakRoll.total;
+        if (crit1 || crit2) {
             sneakDamage *= 2;
         }
         totalDamage += sneakDamage;
+        breakdown += `Sneak Attack: ${sneakRoll.rolls} = ${sneakDamage} <br>`;
     }
 
     document.getElementById("totalDamage").innerText = totalDamage;
+    document.getElementById("calculationBreakdown").innerHTML = breakdown;
 });
