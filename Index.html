@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Damage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>D&D Damage Calculator</h1>
+    
+    <div class="checkbox-container">
+        <label><input type="checkbox" id="weapon1"> First Weapon Hits</label>
+        <label><input type="checkbox" id="crit1"> First Weapon Crits</label>
+
+        <label><input type="checkbox" id="weapon2"> Second Weapon Hits</label>
+        <label><input type="checkbox" id="crit2"> Second Weapon Crits</label>
+
+        <label><input type="checkbox" id="hex"> Hex Applied</label>
+        <label><input type="checkbox" id="hexWarrior"> Hex Warrior’s Curse</label>
+        <label><input type="checkbox" id="sneakAttack"> Sneak Attack</label>
+    </div>
+
+    <button id="rollBtn">Roll Damage</button>
+    
+    <h2>Total Damage: <span id="totalDamage">0</span></h2>
+
+    <script src="script.js"></script>
+</body>
+</html>
